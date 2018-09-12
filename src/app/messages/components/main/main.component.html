@@ -1,0 +1,94 @@
+<div class="col-lg-4">
+  <!-- <h3>{{ title }}</h3>
+  <div class="sidebar-admin" >
+    <ul class="nav nav-pills nav-stacked nav-pills-stacked-example" >
+      <li role="presentation" >
+        <a href="#" [routerLink]="['enviar']" routerLinkActive="active"  >Enviar mensaje</a>
+      </li>
+      <li role="presentation" >
+        <a href="#" [routerLink]="['recibidos']" routerLinkActive="active">Mensajes recibidos</a>
+      </li>
+      <li role="presentation" >
+        <a href="#" [routerLink]="['enviados']" routerLinkActive="active">Mensajes enviados</a>
+      </li>
+      <li role="presentation" >
+        <a href="#" [routerLink]="['/home']">Informacion</a>
+      </li>
+    </ul>
+  </div> -->
+
+    <div class="row heading" *ngIf="identity"  >
+      <div class="col-sm-3 col-xs-3 heading-avatar">
+        <div class="heading-avatar-icon">
+          <img src="{{ url + 'get-image-user/' + identity.image }}" *ngIf="identity.image">
+          <img src="assets/user_default.png" *ngIf="!identity.image"   >
+        </div>
+      </div>
+      <div class="col-sm-6 col-xs-6 ">
+          <!-- <div class="heading-avatar-icon">
+            <img src="{{ url + 'get-image-user/' + identity.image }}" *ngIf="identity.image">
+            <img src="assets/user_default.png" *ngIf="!identity.image"   >
+          </div> -->
+{{ identity.name + ' ' + identity.surname }}
+        </div>
+      <div class="col-sm-1 col-xs-1  heading-dot  pull-right">
+          <a href="#" [routerLink]="['enviar']" role="button" class="btn btn-large btn-success">
+              <span class="glyphicon glyphicon-comment" ></span>
+            </a>
+      </div>
+      <!-- <div class="col-sm-2 col-xs-2 heading-compose  pull-right">
+        <i class="fa fa-comments fa-2x  pull-right" aria-hidden="true"></i>
+      </div> -->
+    </div>
+    <!-- Heading End -->
+
+    <div class="row searchBox">
+      <div class="col-sm-12 searchBox-inner">
+        <div class="form-group has-feedback">
+          <input id="searchText" type="text" class="form-control" name="searchText" placeholder="Search">
+          <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row sideBar">
+        <div class="row sideBar-body" *ngFor="let msg of messages" [routerLink]="['recibidos',{user:msg.userData[0]._id}]" >
+            <div class="col-sm-3 col-xs-3 sideBar-avatar">
+              <div class="avatar-icon">
+                <img src="{{ url + 'get-image-user/' + msg.userData[0].image }}" *ngIf="msg.userData[0].image">
+                <img src="assets/user_default.png" *ngIf="!msg.userData[0].image"   >
+              </div>
+            </div>
+            <div class="col-sm-9 col-xs-9 sideBar-main">
+              <div class="row">
+                  <div class="col-sm-8 col-xs-8 sideBar-name">
+                    <span class="name-meta">{{msg.userData[0].name + ' ' + msg.userData[0].surname}}
+                    </span>
+                  </div>
+                  <div class="col-sm-4 col-xs-4 pull-right sideBar-time">
+                    <span class="time-meta pull-right">{{ (msg.timestamp | amFromUnix ) | amLocale:'es' | amTimeAgo }}
+                    </span>
+                  </div>
+              </div>
+              <div class="row" *ngIf="msg.to != identity._id" >
+                  <div class="col-sm-8 col-xs-8 sideBar-msg">
+                      <span class="glyphicon glyphicon-ok" style="color:gray;font-size: 10px;" *ngIf="!msg.viewed || msg.viewed == 'false'" ></span>
+                      <span class="glyphicon glyphicon-ok" style="color:aquamarine;font-size: 10px;" *ngIf="msg.viewed == 'true'"  ></span>
+                      <span class="msg-meta"> {{msg.msg}}
+                      </span>
+                    </div>
+              </div>
+              <div class="row" *ngIf="msg.to == identity._id" >
+                  <div class="col-sm-8 col-xs-8 sideBar-msg">
+                      <span class="msg-meta">{{msg.msg}}
+                      </span>
+                    </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+<div class="col-lg-8" >
+<router-outlet (sended)="refresh($event);" ></router-outlet>
+</div>

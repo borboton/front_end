@@ -1,0 +1,44 @@
+<div class="publications" >
+  <div class="alert alert-danger" *ngIf="this.status == 'error'"  >
+    {{ message }}
+  </div>
+  <div class="alert alert-info" *ngIf="this.status == 'info'"  >
+    {{ message }}
+  </div>
+
+  <div *ngFor="let publication of publications" class="item-publication"  >
+    <div class="panel panel-default" >
+      <div class="panel-body" >
+          <div class="image-user pull-left" >
+              <a href="#">
+                <img src="{{ url + 'get-image-user/' + publication.user.image }}" *ngIf="publication.user.image"   >
+                <img src="assets/user_default.png" *ngIf="!publication.user.image"   >
+              </a>
+          </div>
+
+        <div >
+          <span>{{publication.user.name + ' ' + publication.user.surname}} </span>
+          &nbsp;|&nbsp;
+          <span class="date" >{{ (publication.created_at | amFromUnix ) | amLocale:'es' | amTimeAgo }}</span>
+        </div>
+        <div class="publication-text pull-left" >
+          {{ publication.text }}
+        </div>
+      </div>
+      <div class="publication-file" *ngIf="publication.file"  >
+
+          <img src="{{ url + 'get-image-pub/' + publication.file }}" alt="">
+        </div>
+
+    </div>
+  </div>
+  <div class="col-lg-12 text-center" *ngIf="publications && publications.length == 0" >
+    <p>
+      <button class="btn btn-success"   (click)="viewMore();" *ngIf="!noMore"  >
+          Ver mas publicaciones
+        </button>
+      </p>
+  </div>
+
+
+</div>

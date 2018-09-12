@@ -1,0 +1,185 @@
+/* You can add global styles to this file, and also import other style files */
+.h1-strong{
+  font-size: 35px;
+  font-weight: bold;
+  margin-left: 13px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.navigation .avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-top: 10px;
+  /* margin-right: 2px; */
+}
+.navigation .avatar img {
+  height: 100%;
+  width: 100%;
+}
+
+
+/* USERS  */
+.item-user .image-user,
+.item-publication .image-user{
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.item-user .image-user  img,
+.item-publication .image-user img {
+  width: 100%;
+  height: 100%;
+}
+
+.item-user .user-name  {
+  margin-top: 15px;
+  margin-left: 20px;
+}
+.item-user .user-name .name-surname a{
+  font-size: 22px;
+  color: #555;
+  font-weight: bold;
+}
+.item-user .nick-name  {
+  color: #ccc;
+}
+
+
+/* SIDEBAR */
+#user-card, #new-publication {
+  padding: 25px;
+  width: 30%;
+  margin-top: 74px;
+}
+#user-card .avatar{
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-top: 10px;
+}
+#user-card .avatar img {
+  height: 100%;
+  width: 100%;
+}
+
+#user-card .name-surname{
+  font-size: 17px;
+  font-weight: 300;
+}
+
+#user-card .name-surname img{
+  color: #555;
+}
+
+#user-card .label-stats,
+#user-card .number-stats,
+{
+  display: block;
+  text-align: center;
+}
+
+
+/* TIMELINE */
+.publications {
+  min-height: 300px;
+}
+.publications .item-publication .publication-file {
+  text-align: center;
+}
+.publications .item-publication .publication-file img {
+  height: 50%;
+  width: 50%;
+  padding: 20px;
+}
+
+/* PROFILE */
+#data-profile {
+  min-height: 250px;
+  text-align: left;
+  margin-top: 25px;
+
+}
+#data-profile .avatar {
+  width: 185px;
+  height: 185px;
+  border: 1px solid goldenrod;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-right: 15px;
+  margin: 0 auto;
+}
+
+#data-profile .avatar img {
+  height: 100%;
+    width: 100%;
+}
+
+#data-profile .user-name {
+  /* margin-top: 25px; */
+  /* text-align: center; */
+  padding-left: 30px;
+
+
+}
+#data-profile .user-name .label {
+margin-bottom: 10px;
+
+}
+#data-profile .user-name .name {
+
+  font-size: 40px;
+  font-weight: bold;
+  color: #555;
+}
+
+#data-profile .user-name .nick {
+  /* text-align: center; */
+  font-size: 30px;
+  font-weight: normal;
+  color: gray;
+}
+
+#data-profile .stats {
+  border-left: 4px solid #ccc;
+  margin-left: 35px;
+  padding-left: 20px;
+  height: 200px;
+}
+#data-profile .stats a{
+  font-size: 20px;
+  line-height: 55px;
+  color: #555;
+}
+/* .active {
+  border-bottom: 3px solid rgba(255, 255, 0, 0.315) !important;
+  background-color: brown !important;
+} */
+
+.jumbotron {
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.navigation{
+  padding: 0px !important;
+
+}
+.navigation .navbar{
+  border-radius: 0px !important;
+  background: #bd2020 !important;
+  border: none;
+}
+.navbar-right {
+  margin-right: 0px;
+}
+.navigation .navbar *{
+  color: bisque !important;
+}
